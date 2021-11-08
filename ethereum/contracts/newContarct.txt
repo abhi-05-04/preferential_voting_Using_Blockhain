@@ -1,0 +1,218 @@
+pragma solidity ^0.4.17 ;
+
+
+
+// Comments must be implemented further
+contract Admin{
+    address[] public listManufacturers;
+    address public superHost;
+    mapping(address=>bool) public isManufacturer;
+    mapping(address=>address) public getContractId;
+
+     
+    modifier restricted(){
+         require(msg.sender == superHost);
+         _;
+    }
+    
+    function Admin() public{
+        superHost = msg.sender;
+    }
+
+    function addManufacturer(string cname,string cproduct,string ctag) public {
+        address newManufacturer = new Manufacturer( cname, cproduct, ctag,msg.sender);
+        listManufacturers.push(newManufacturer);
+        isManufacturer[msg.sender] = true;
+        getContractId[msg.sender] = newManufacturer;
+    }
+    
+    function getListOfManufacturers() view public restricted returns(address[]){
+        return listManufacturers;
+    }
+    
+    function find(address manToRemove) private restricted view returns(uint){
+        for(uint i=0;i<listManufacturers.length;i++){
+            if(listManufacturers[i] == manToRemove)
+                return i;
+        }
+        return listManufacturers.length;
+    }
+
+    function removeManufacturer(address manToRemove) restricted public {
+        uint index = find(manToRemove);
+        delete listManufacturers[index];
+        isManufacturer[manToRemove] = false;
+        getContractId[manToRemove] = 0x0000000000000000000000000000000000000000;
+    }
+}
+ 
+ 
+ contract Manufacturer{
+    struct Company{
+        address companyAddress;
+        string name;
+        string product;
+        string tag;
+        uint productCount;
+    }
+    
+    struct Product{
+        string feature;
+        uint price;
+        bool sold;
+        address retailer;
+        address customer;
+    }
+    
+    Company public thisCampany;
+    string[] public productNames;
+    mapping(uint =>Product[]) public listingProducts;
+    
+    
+    modifier restricted(){
+         require(msg.sender == thisCampany.companyAddress);
+         _;
+    }
+    
+    function Manufacturer(string cname,string cproduct,string ctag,address manager)public{
+        thisCampany = Company(manager,cname,cproduct,ctag,0);
+    }
+    
+    function launchProduct(string name) public restricted{
+        productNames.push(name);
+        thisCampany.productCount++;
+    }
+    function addProduct(uint product,uint price ,string cfeature) public restricted{
+        Product memory newProduct = Product(cfeature,price , false ,
+        0x0000000000000000000000000000000000000000,
+        0x0000000000000000000000000000000000000000);
+        listingProducts[product].push(newProduct);
+    }
+    
+    function updateCompany(string cname,string cproduct,string ctag) public restricted{
+        thisCampany.name = cname;
+        thisCampany.product = cproduct;
+        thisCampany.tag = ctag;
+    }
+    
+    function countLaunchedProducts() view public returns (uint){
+        return thisCampany.productCount;
+    }
+    function countProductsAddedInLaunch(uint product) view public returns (uint){
+        return listingProducts[product].length;
+    }
+ }
+ 
+ 
+
+// contract CampaignFactory{
+//     address[] public deplyedCampaigns;
+    
+//     function createCampaign(uint minimum) public{
+//         address newCampaign = new Campaign(minimum , msg.sender);
+//         deplyedCampaigns.push(newCampaign);
+//     }
+    
+//     function getDeloyedCampaigns() public view returns(address[]) {
+//         return deplyedCampaigns;
+//     }
+    
+// }
+
+
+// contract Campaign{
+    
+//     struct Request{
+//         string description;
+//         uint value;
+//         address recipient;
+//         bool complete;
+//         uint approvalCount;
+//         mapping(address => bool) approvals;
+//     }
+    
+//     Request[] public requests; 
+//     address public manager;
+//     uint public minimumContribution;
+//     mapping(address=>bool) public approvers;
+//     uint public approversCount ;
+    
+//      modifier restricted(){
+//          require(msg.sender == manager);
+//          _;
+//     }
+     
+//     function Campaign(uint minimum,address creator) public{
+//         manager = creator;
+//         minimumContribution = minimum;
+//         approversCount = 0;
+//     }
+     
+//     function contribute() public payable{
+//         require(msg.value >= minimumContribution);
+//         if(approvers[msg.sender] == false){
+//             approvers[msg.sender] = true;
+//             approversCount++;
+//         }
+//     }
+    
+//     function createRequest(string description,uint value,address recipient) 
+//         public restricted {
+//          Request memory newRequest = Request({
+//              description : description,
+//              value : value,
+//              recipient : recipient,
+//              complete : false,
+//              approvalCount : 0
+             
+//          });
+//          requests.push(newRequest);
+//     }
+//     function approveRequest(uint index) public {
+//         Request storage request = requests[index]; 
+        
+//         require(approvers[msg.sender]);
+//         require(!request.approvals[msg.sender]);
+        
+//         request.approvals[msg.sender] = true;
+//         request.approvalCount++;
+//     }
+    
+//     function finalizeRequest(uint index) public payable restricted{
+//         Request storage request = requests[index];  
+//         require(!request.complete);
+//         require(request.approvalCount >= approversCount/2);
+        
+        
+//         uint amtToTransfer = ((request.value < this.balance) ? request.value : this.balance);
+//         request.recipient.transfer(amtToTransfer);
+//         request.complete = true;
+//     }
+
+//     function getSummary() public view returns(
+//         uint,uint,uint,uint,address
+//     ){
+//         return (
+//             minimumContribution,
+//             this.balance,
+//             requests.length,
+//             approversCount,
+//             manager
+//         );
+//     }
+
+//     function getRequestsCount()public view returns(uint){
+//         return requests.length;
+//     }
+// }
+
+
+const addpaypal=()=>{
+    const script=document.createElement("script");
+    script.src="https://www.paypal.com/sdk/js?client-id=ASbIUeNGxMZwGm6yi-WnPBmyHxokRrZFVnfF24H3jDjN3oicz8Gmvb-ZMNk6TMMeIaQC6dDSMine0Kfw";
+
+    script.type="text\javascript";
+    script.async=true;
+    document.body.appendChild(script);
+}
+

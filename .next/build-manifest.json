@@ -24,10 +24,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/next/dist/pages/_error": [
+    "/electionscreen": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/next/dist/pages/_error.js"
+      "static/chunks/pages/electionscreen.js"
+    ],
+    "/login": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/login.js"
     ]
   },
   "ampFirstPages": []

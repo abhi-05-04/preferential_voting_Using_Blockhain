@@ -1,8 +1,8 @@
 import React from 'react'
-import Head from '../ethereum/components/Head'
-import Nav from '../ethereum/components/Nav'
+import Head from '../components/Head'
+import Nav from '../components/Nav'
 import 'bootstrap/dist/css/bootstrap.css'
-import web3 from '../ethereum/web3';
+// import web3 from '../ethereum/web3';
 
 export default function login() {
     return (

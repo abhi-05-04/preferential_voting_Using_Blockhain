@@ -11,12 +11,12 @@ export default function Nav() {
                 <li className="nav-item">
                     <a className="nav-link" href="/login">Login</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <a className="nav-link" href="/signup">Register</a>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                     <a className="nav-link" href="/admin/login">Admin</a>
-                </li>
+                </li> */}
                 </ul>
             </div>
             </div>

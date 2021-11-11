@@ -15,12 +15,12 @@ export default function electionscreen() {
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="col" style={{fontSize: "30px", verticalAlign: "middle"}}>
+                        <div class="col text-white" style={{fontSize: "30px", verticalAlign: "middle"}}>
                             Elections Name
                         </div>
                         <div class="col" style={{verticalAlign: "middle"}}>
                             <button type="submit" className="btn btn-primary btn-block">
-                                <a className="nav-link" href="/admin/addelectionscreen" style={{color: "White"}}>Add</a>
+                                <a className="nav-link" href="/admin/addelectionscreen" style={{color: "White"}}>Add Candidate</a>
                             </button>
                         </div>
                     </div>

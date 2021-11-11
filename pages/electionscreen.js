@@ -8,35 +8,35 @@ export default function electionscreen() {
         <div>
             <div className="container" style={{marginTop: "50px"}}>
                 <Head/>
-                <Nav/>   
+                {/* <Nav/>    */}
             </div>
-            <div class="row" style={{marginTop: "10px", marginBottom: "10px"}}>
-                <div class="col">
+            <div className="row" style={{marginTop: "10px", marginBottom: "10px"}}>
+                <div className="col">
                 </div>
-                <div class="col">
-                    <div class="col" style={{fontSize: "30px", verticalAlign: "middle"}}>
+                <div className="col">
+                    <div className="col text-white" style={{fontSize: "30px", verticalAlign: "middle"}}>
                         Elections Name
                     </div>
                 </div>
-                <div class="col">
+                <div className="col">
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div className="row">
+                <div className="col">
                 </div>
-                <div class="col">
+                <div className="col">
                     <div>
                         <div className="card container" style={{marginTop: "10px", marginBottom: "10px"}}>
                             <div className="card-body">
                                 <a className="nav-link" href="/winnerscreen" style={{color: "Black"}}>
-                                    <div class="row">
-                                        <div class="col">
+                                    <div className="row">
+                                        <div className="col">
                                             Election Name
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Time
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Completed
                                         </div>
                                     </div>
@@ -46,14 +46,14 @@ export default function electionscreen() {
                         <div className="card container" style={{marginTop: "10px", marginBottom: "10px"}}>
                             <div className="card-body">
                                 <a className="nav-link" href="/liveelection" style={{color: "Black"}}>
-                                    <div class="row">
-                                        <div class="col">
+                                    <div className="row">
+                                        <div className="col">
                                             Election Name
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Time
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Live
                                         </div>
                                     </div>
@@ -63,14 +63,14 @@ export default function electionscreen() {
                         <div className="card container" style={{marginTop: "10px", marginBottom: "10px"}}>
                             <div className="card-body">
                                 <a className="nav-link" href="/upcommingelections" style={{color: "Black"}}>
-                                    <div class="row">
-                                        <div class="col">
+                                    <div className="row">
+                                        <div className="col">
                                             Election Name
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Time
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             Upcomming
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@ export default function electionscreen() {
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div className="col">
                 </div>
             </div>
         </div>

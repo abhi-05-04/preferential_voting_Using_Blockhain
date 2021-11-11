@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
+  "/[admin]/electionscreen": "pages/[admin]/electionscreen.js",
+  "/liveelection": "pages/liveelection.js",
   "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
 }

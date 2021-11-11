@@ -15,11 +15,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 export default function index() {
     return (
-        <div className="container" style={{backgroundColor: "Yellow"}}>
+        <div className="container">
             <Head/>
             <div className="App">
-            <Nav/>
-        </div>
+                <Nav/>
+            </div>
     </div>
     )
 }

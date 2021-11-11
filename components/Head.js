@@ -4,7 +4,7 @@ export default function head() {
     return (
       
             <Head>
-                <meta charset="utf-8" />
+                <meta charSet="utf-8" />
                 <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="theme-color" content="#000000" />
@@ -27,7 +27,7 @@ export default function head() {
                 work correctly both with client-side routing and a non-root public URL.
                 Learn how to configure a non-root public URL by running `npm run build`.
                 --> */}
-                <title>React App</title>
+                <title>Preferntial Voting</title>
             </Head>
         
     )

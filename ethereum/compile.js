@@ -8,7 +8,7 @@ const buildPath = path.resolve(__dirname , 'build');
 fs.removeSync(buildPath);
 
 // Reading contracts
-const bestbuyPath = path.resolve(__dirname,'contracts','bestBuy.sol');
+const bestbuyPath = path.resolve(__dirname,'contracts','PreVoting.sol');
 const source = fs.readFileSync(bestbuyPath , 'utf-8');
 
 const output =  solc.compile(source,1).contracts;

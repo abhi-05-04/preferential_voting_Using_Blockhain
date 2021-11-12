@@ -64,6 +64,10 @@ pragma solidity ^0.4.17;
          return address_of_voters.length;
      }
      
+     function getCandidatesNames(uint pos)public view returns(string){
+         return candidates[pos].candidate_name;
+     }
+     
      
      uint public max_per;
      

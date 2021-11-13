@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Head from '../../components/Head'
 import Nav from '../../components/Nav'
 import 'bootstrap/dist/css/bootstrap.css'
+import preVoting from '../../ethereum/preVoting'
 
 export default function electionscreen() {
+
+    const [cname, setCname] = useState('Candidate Name');
+
+    const addCandidate = async() =>{
+        try{
+            const accounts = await web3.eth.getAccounts();
+            await preVoting.methods.add_candidate(cname).send({
+                from: accounts[0],
+            });
+        }
+        catch(err){
+            console.log("You are not the admin");
+        }
+    }
+
     return (
         <div>
             <div className="container" style={{ marginTop: "50px" }}>
@@ -73,8 +89,8 @@ export default function electionscreen() {
             </div>
                 </div> */}
                 <div class="input-group mb-3 w-50 container">
-                    <input type="text" class="form-control" placeholder="Add Candidate name" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2">Add Candidate</button>
+                    <input type="text" class="form-control" placeholder="Add Candidate name" value={cname} aria-label="Candidate Name" aria-describedby="button-addon2" onChange={(event) => setCname(event.target.value)}/>
+                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addCandidate}>Add Candidate</button>
                 </div>
                 <div class="input-group mb-3 w-50 container">
                     <input type="text" class="form-control" placeholder="voters metamask adddress" aria-label="Recipient's username" aria-describedby="button-addon2" />

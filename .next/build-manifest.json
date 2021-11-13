@@ -14,6 +14,16 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
+    "/[admin]/addelectionscreen": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/[admin]/addelectionscreen.js"
+    ],
+    "/[admin]/electionscreen": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/[admin]/electionscreen.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -23,11 +33,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
-    ],
-    "/liveelection": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/liveelection.js"
     ]
   },
   "ampFirstPages": []

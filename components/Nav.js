@@ -13,7 +13,7 @@ export default function Nav() {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <a className="nav-link text-primary" href="/liveelection">Login</a>
+                    <a className="nav-link text-primary"  href="/liveelection">Login</a>
                 </li>
                 {/* <li className="nav-item">
                     <a className="nav-link" href="/signup">Register</a>

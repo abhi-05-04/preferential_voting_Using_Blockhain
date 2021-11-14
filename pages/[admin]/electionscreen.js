@@ -61,6 +61,7 @@ export default function electionscreen() {
 
     return (
         <div>
+            
             <div className="container" style={{ marginTop: "50px" }}>
                 <Head />
                 <Nav />

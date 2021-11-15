@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Head from '../../components/Head'
-import Nav from '../../components/Nav'
+import Nav1 from '../../components/Nav1'
 import 'bootstrap/dist/css/bootstrap.css'
 import preVoting from '../../ethereum/preVoting'
 import web3 from '../../ethereum/web3'
@@ -64,7 +64,7 @@ export default function electionscreen() {
             
             <div className="container" style={{ marginTop: "50px" }}>
                 <Head />
-                <Nav />
+                <Nav1 />
 
                 <div class="container text-white mb-3 w-50" style={{ fontSize: "30px", verticalAlign: "middle" }}>
                     Elections Name

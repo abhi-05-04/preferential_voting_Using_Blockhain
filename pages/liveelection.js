@@ -21,12 +21,11 @@ export default function liveelection({ cno, cList }) {
     //     var arr2 = new Array(cno).fill(0);
     //     setArr(arr2);
     // }
-    React.useEffect(() =>{
+    React.useEffect(() => {
         window.addEventListener('load', (event) => {
             var arr2 = new Array()
-            for(let i=0;i<cno;i++)
-            {
-                arr2[i]=0;
+            for (let i = 0; i < cno; i++) {
+                arr2[i] = 0;
             }
             setArr(arr2);
         });
@@ -44,12 +43,11 @@ export default function liveelection({ cno, cList }) {
         if (pos > -1) {
             tmp1.splice(pos, 1);
             for (let j = 0; j < cno; j++) {
-                if(tmp2[j]>tmp2[i-1])
-                {
+                if (tmp2[j] > tmp2[i - 1]) {
                     tmp2[j]--;
                 }
             }
-            tmp2[i-1] = 0;
+            tmp2[i - 1] = 0;
             index--;
             console.log(index);
         }
@@ -57,11 +55,11 @@ export default function liveelection({ cno, cList }) {
             tmp1.push(i);
             index++;
             console.log(index);
-            tmp2[i-1] = index;
+            tmp2[i - 1] = index;
         }
         setCount(tmp1);
         setArr(tmp2);
-        console.log(count,arr);
+        console.log(count, arr);
     }
 
 
@@ -109,9 +107,9 @@ export default function liveelection({ cno, cList }) {
                 <div className="col">
                     <div className="row">
                         <div className="col text-white" style={{ fontSize: "30px", verticalAlign: "middle" }}>
-                            Elections Name
+                            Preferntial Voting
                         </div>
-                        
+
                     </div>
                 </div>
                 <div className="col">

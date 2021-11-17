@@ -13,7 +13,7 @@ export default function winnerscreen({wname}) {
                 <Nav2 />
             </div>
 
-            <div class="text-center display-2 text-white">
+            <div className="text-center display-2 text-white">
                 W
                 inner : {wname}
             </div>

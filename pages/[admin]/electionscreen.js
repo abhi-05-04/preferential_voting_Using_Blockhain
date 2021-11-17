@@ -13,8 +13,7 @@ export default function electionscreen() {
     const [vaddress, setVaddress] = useState('')
 
     const addCandidate = async () => {
-        if(cname == "")
-        {
+        if (cname == "") {
             alert("Please Enter Candidate Name");
             return;
         }
@@ -55,8 +54,7 @@ export default function electionscreen() {
     }
 
     const addVoters = async () => {
-        if(vaddress == "")
-        {
+        if (vaddress == "") {
             alert("Please Enter Voters Metamask Address");
             return;
         }
@@ -97,16 +95,13 @@ export default function electionscreen() {
 
     return (
         <div>
-            {/* <link
-                rel="stylesheet"
-                href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
-            /> */}
+            <Head />
+            <Nav1 />
             <div className="container" style={{ marginTop: "50px" }}>
-                <Head />
-                <Nav1 />
+
 
                 <div className="container text-white mb-3 w-50" style={{ fontSize: "30px", verticalAlign: "middle" }}>
-                    Elections Name
+                    Preferntial Voting
                 </div>
 
                 <div className="input-group mb-3 w-50 container">
@@ -114,18 +109,16 @@ export default function electionscreen() {
                     <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addCandidate}>Add Candidate</button>
                 </div>
                 <div className="input-group mb-3 w-50 container">
-                    <Card.Group items={cand} style={{width: "100%"}}/>
+                    <Card.Group items={cand} style={{ width: "100%" }} />
                 </div>
                 <div className="input-group mb-3 w-50 container">
                     <input type="text" className="form-control" placeholder="Voters Metamask adddress" value={vaddress} aria-label="Recipient's username" aria-describedby="button-addon2" onChange={(event) => setVaddress(event.target.value)} />
                     <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addVoters}>Give Voting Rights</button>
                 </div>
                 <div className="input-group mb-3 w-50 container" >
-                    {/* <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
                     <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={calculateVotes}>Calculate Votes</button>
                 </div>
                 <div className="input-group mb-3 w-50 container">
-                    {/* <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
                     <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={checkMajority}>Check Majority</button>
                 </div>
             </div>

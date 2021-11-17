@@ -17,13 +17,13 @@ export default function Nav() {
             const accounts = await web3.eth.getAccounts();
             const manager = await preVoting.methods.organiser().call();
             if (accounts[0] == manager) {
-                router.replace('/admin/electionscreen');
+                router.push('/admin/electionscreen');
             }
             else {
                 alert(
                     "You are not the Admin"
                 );
-                router.replace('/');
+                // router.push('/');
             }
         }
         catch (err) {
@@ -36,13 +36,14 @@ export default function Nav() {
             // const accounts = await web3.eth.getAccounts();
             const winner = await preVoting.methods.winner().call();
             if (winner == "") {
-                router.replace('/winnerscreen');
-            }
-            else {
                 alert(
                     "Election is not Ended"
                 );
-                router.replace('/');
+            }
+            else {
+                router.push('/winnerscreen');
+                
+                // router.push('/');
             }
         }
         catch (err) {

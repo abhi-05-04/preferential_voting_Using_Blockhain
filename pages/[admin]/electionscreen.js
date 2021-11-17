@@ -4,14 +4,20 @@ import Nav1 from '../../components/Nav1'
 import 'bootstrap/dist/css/bootstrap.css'
 import preVoting from '../../ethereum/preVoting'
 import web3 from '../../ethereum/web3'
+import { Card } from 'semantic-ui-react';
 
 export default function electionscreen() {
 
     const [cname, setCname] = useState('');
-    
+    var [cand, setCand] = useState([]);
     const [vaddress, setVaddress] = useState('')
 
     const addCandidate = async () => {
+        if(cname == "")
+        {
+            alert("Please Enter Candidate Name");
+            return;
+        }
         try {
             const accounts = await web3.eth.getAccounts();
             await preVoting.methods.add_candidate(cname).send({
@@ -21,9 +27,39 @@ export default function electionscreen() {
         catch (err) {
             alert("Error while adding Candidate");
         }
+        const cList = [];
+        let cno = 0;
+        cno = await preVoting.methods.get_number_of_candidates().call();
+        for (let i = 0; i < cno; i++) {
+            const name = await preVoting.methods.getCandidatesNames(i).call();
+            // console.log(name);
+            cList.push(name);
+        }
+        var items = [];
+        for (let i = 0; i < cno; i++) {
+            // console.log(cList[i]);
+            items.push({
+                header: `${i + 1}. ${cList[i]}`,
+                // description: `${a[i]}`,
+                // description: (
+                //     <div className="d-inline-block px-md-5">
+                //         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" onClick={() => { inc(i) }} value="option1" />
+                //         <label className="form-check-label" htmlFor="inlineCheckbox"></label>
+                //     </div>
+                // ),
+                fluid: true
+
+            });
+        }
+        setCand(items);
     }
 
     const addVoters = async () => {
+        if(vaddress == "")
+        {
+            alert("Please Enter Voters Metamask Address");
+            return;
+        }
         try {
             const accounts = await web3.eth.getAccounts();
             await preVoting.methods.give_voting_rights(vaddress).send({
@@ -61,30 +97,36 @@ export default function electionscreen() {
 
     return (
         <div>
-            
+            {/* <link
+                rel="stylesheet"
+                href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
+            /> */}
             <div className="container" style={{ marginTop: "50px" }}>
                 <Head />
                 <Nav1 />
 
-                <div class="container text-white mb-3 w-50" style={{ fontSize: "30px", verticalAlign: "middle" }}>
+                <div className="container text-white mb-3 w-50" style={{ fontSize: "30px", verticalAlign: "middle" }}>
                     Elections Name
                 </div>
 
-                <div class="input-group mb-3 w-50 container">
-                    <input type="text" class="form-control" placeholder="Add Candidate name" value={cname} aria-label="Candidate Name" aria-describedby="button-addon2" onChange={(event) => setCname(event.target.value)} />
-                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addCandidate}>Add Candidate</button>
+                <div className="input-group mb-3 w-50 container">
+                    <input type="text" className="form-control" placeholder="Add Candidate name" value={cname} aria-label="Candidate Name" aria-describedby="button-addon2" onChange={(event) => setCname(event.target.value)} />
+                    <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addCandidate}>Add Candidate</button>
                 </div>
-                <div class="input-group mb-3 w-50 container">
-                    <input type="text" class="form-control" placeholder="voters metamask adddress" value={vaddress} aria-label="Recipient's username" aria-describedby="button-addon2" onChange={(event) => setVaddress(event.target.value)} />
-                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addVoters}>Give Voting Rights</button>
+                <div className="input-group mb-3 w-50 container">
+                    <Card.Group items={cand} style={{width: "100%"}}/>
                 </div>
-                <div class="input-group mb-3 w-50 container" >
-                    {/* <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
-                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={calculateVotes}>Calculate Votes</button>
+                <div className="input-group mb-3 w-50 container">
+                    <input type="text" className="form-control" placeholder="Voters Metamask adddress" value={vaddress} aria-label="Recipient's username" aria-describedby="button-addon2" onChange={(event) => setVaddress(event.target.value)} />
+                    <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={addVoters}>Give Voting Rights</button>
                 </div>
-                <div class="input-group mb-3 w-50 container">
-                    {/* <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
-                    <button class="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={checkMajority}>Check Majority</button>
+                <div className="input-group mb-3 w-50 container" >
+                    {/* <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
+                    <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={calculateVotes}>Calculate Votes</button>
+                </div>
+                <div className="input-group mb-3 w-50 container">
+                    {/* <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/> */}
+                    <button className="btn btn-outline-secondary text-white" type="button" id="button-addon2" onClick={checkMajority}>Check Majority</button>
                 </div>
             </div>
         </div>

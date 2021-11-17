@@ -14,7 +14,7 @@ export default function index() {
                 alert("MetaMask is not available");
               }
             } else {
-              alert("web3 is not found");
+              alert("MetaMask is not Found Please Install");
             }
         });
     })

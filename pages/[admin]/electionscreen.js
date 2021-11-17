@@ -8,7 +8,7 @@ import web3 from '../../ethereum/web3'
 export default function electionscreen() {
 
     const [cname, setCname] = useState('');
-
+    
     const [vaddress, setVaddress] = useState('')
 
     const addCandidate = async () => {
@@ -19,7 +19,7 @@ export default function electionscreen() {
             });
         }
         catch (err) {
-            console.log("You are not the admin");
+            alert("Error while adding Candidate");
         }
     }
 
@@ -31,7 +31,7 @@ export default function electionscreen() {
             });
         }
         catch (err) {
-            console.log("Voter not added");
+            alert("Error while adding Voters");
         }
     }
 
@@ -43,7 +43,7 @@ export default function electionscreen() {
             });
         }
         catch (err) {
-            console.log("Erroe in calculating votes");
+            alert("Error in calculating votes");
         }
     }
 

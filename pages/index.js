@@ -2,24 +2,20 @@ import React from 'react'
 import Head from '../components/Head'
 import Nav from '../components/Nav'
 import 'bootstrap/dist/css/bootstrap.css'
-
-
-// import { useRouter } from 'next/router';
-// import Layout from '../components/Layout';
-// import Admin from '../ethereum/admin'
-// import Manufacturer from '../ethereum/manufacturer';
-// import web3 from '../ethereum/web3';
-// import Message from '../components/Message';
-// import { route } from 'next/dist/server/router';
-
-
+import Image from '../public/Images/cant-waste-your-vote.png';
 export default function index() {
     return (
-        <div className="container">
-            <Head/>
-            <div className="App">
-                <Nav/>
+        <div >
+            <div>
+                <div className="container">
+                    <Head />
+                    <Nav />
+                    
+                </div>
             </div>
-    </div>
+            <div style={{ paddingTop: "1000px" }}>
+                <img src={Image.src} className="img-fluid" alt="image" width="100%" />
+            </div>
+        </div>
     )
 }

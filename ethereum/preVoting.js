@@ -4,7 +4,7 @@ import prevoting from './build/PreVoting.json';
 
 const instance =  new web3.eth.Contract(
     JSON.parse(prevoting.interface) ,
-    '0xcD51ad714b514515d3fF5D3Ee0957Ff19a1e739D'
+    '0x074fA400cD3980ccC339cdFa98402476CDA7Bd69'
 );
 
 export default instance;

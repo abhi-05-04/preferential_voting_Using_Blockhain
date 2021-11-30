@@ -15,7 +15,7 @@ const styling = {
 }
 
 
-export default function liveelection({ cno, cList }) {
+export default function Liveelection({ cno, cList }) {
     var [arr, setArr] = useState([]);
     // function initialize() {
     //     var arr2 = new Array(cno).fill(0);
@@ -152,7 +152,7 @@ export default function liveelection({ cno, cList }) {
     )
 }
 
-liveelection.getInitialProps = async () => {
+Liveelection.getInitialProps = async () => {
     const cList = [];
     let cno = 0;
     cno = await preVoting.methods.get_number_of_candidates().call();

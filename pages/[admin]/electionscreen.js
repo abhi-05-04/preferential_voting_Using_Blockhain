@@ -6,7 +6,7 @@ import preVoting from '../../ethereum/preVoting'
 import web3 from '../../ethereum/web3'
 import { Card } from 'semantic-ui-react';
 
-export default function electionscreen() {
+export default function Electionscreen() {
 
     const [cname, setCname] = useState('');
     var [cand, setCand] = useState([]);

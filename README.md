@@ -1,5 +1,5 @@
 Deployed Project Link:
-[  https://preferentialvoting.vercel.app/](url)
+[  https://preferentialvoting.vercel.app/]
 
 # preferential_voting_Blockhain
 

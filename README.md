@@ -25,4 +25,4 @@ npm run dev
 
 
 
-![alt text](https://github.com/abhi05-04/preferential_voting_Blockhain/blob/main/public/Images/cant-waste-your-vote.png)
+![Image_Explaing_Preferential_voting](https://github.com/abhi05-04/preferential_voting_Blockhain/blob/main/public/Images/cant-waste-your-vote.png)
